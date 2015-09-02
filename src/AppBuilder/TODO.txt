@@ -1,0 +1,42 @@
+This is a list of things to do
+Some may be too low priority, but at least this list has a good coverage
+
+BIG THINGS =========================
+- Editing nested components (tab sets, the Section component, etc)
+The property editors have access to the page model, but the page model
+doesn't really have a good way to add/remove/reorder child regions
+
+SMALL THINGS =======================
+- Mock out property editors for components that need them
+Some components have empty property editors (they just say
+"This component has no properties."
+
+- Figure out a way to easily style the regions so that they are
+responsive to different sizes. It would be nice to make it so that
+it's easy to switch between different "templates"
+
+- Make "Shrink to view" work in a dumb way.
+Instead of actually zooming the canvas area, just set a max width
+
+- The SDS CSS causes the font size to grow when the window is made
+smaller than a certain size. We probably don't want it, but it's not
+a HUGE deal if it's not fixed
+
+- Dropdowns should close when you click away from them
+
+- Should the palette say "Custom components aren't enabled", or
+"You don't have any custom components"
+- Save button should say "Changes saved" to simulate saving
+- We should have a drop shadow around the canvas are to look more like
+the production app builder
+- The input box to "search componets" in the component palette should
+have a magnifying glass on it. It probably doesn't need to function, though :)
+- Should the component palette sections be collapsible?
+- When switching tabs in a tab set by dragging over a tab, a green
+border appears around the tab. In production it has a little green flashing
+animation
+
+- For real synchronicity with the production app builder, the property
+editor should only update properties on "blur", instead of on any change
+
+- Fix the Section component so it doesn't expand past the region's width

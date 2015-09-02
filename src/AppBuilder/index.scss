@@ -1,0 +1,369 @@
+@import "../../node_modules/@salesforce-ux/landmark/scss/design-tokens";
+
+/* These are copied from production */
+$phone-width: 320px;
+$tablet-width: 768px;
+$tablet-land-width: 1024px;
+$desktop-width: 1440px;
+
+.app-builder-container {
+
+  /* TODO reference h-full here */
+  height: 100%;
+  user-select: none;
+  -webkit-user-select: none;
+
+/*  LAYOUT & DISPLAY  ============================================================================= */
+  .flex-row {
+    display: flex;
+    flex-direction: row;
+  }
+  .flex-col {
+    display: flex;
+    flex-direction: column;
+  }
+  .flex-nogrow { flex-grow: 0; flex-shrink: 0; }
+  .flex-grow { flex-grow: 1; }
+  .flex-center { align-items: center; }
+
+  .osy { overflow-y: scroll; }
+
+  .dn { display: none; }
+  .db { display: block; }
+  .dib { display: inline-block; }
+  .dt { display: table; }
+  .dtc { display: table-cell; }
+
+  .pos-rel { position: relative; }
+  .pos-abs { position: absolute; }
+  .pos-fix { position: fixed; }
+  .top-0 { top: 0; }
+  .top-50per { top: 50%; }
+  .bot-0 { bottom: 0; }
+  .left-0 { left: 0; }
+  .right-0 { right: 0; }
+  .abs-full {
+    /* TODO referece the top-0, bottom-0, etc. classes here */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .fl { float: left; }
+  .fr { float: right; }
+
+  .center { margin-left: auto; margin-right: auto; }
+  .a-top { vertical-align: top; }
+  .a-mid { vertical-align: middle; }
+  .a-bot { vertical-align: bottom; }
+
+  .z-above { z-index: 10; }
+  .z-top { z-index: 999; }
+
+/*  WIDTH & HEIGHT  ============================================================================= */
+  .h-full { height: 100%; }
+  .hmin-full { min-height: 100%; }
+  .h-header { height: 50px; }
+  .h-toolbar { height: 50px; }
+  .h-min-component { min-height: 20px; }
+  .h-onlyDropTarget {
+    height: 120px;
+    line-height: 120px; /* these two should match */
+  }
+  .h-dropTarget { height: 8px; }
+
+  .w-full { width: 100%; }
+  .w-comp-palette { width: 270px; }
+  .w-prop-editor { width: 326px; }
+  .w-formFactorSwitcher {
+    /* This is just big enough for all the options to fit */
+    width: 185px;
+  }
+  .w-shrinkToView { width: 150px; }
+  .wt-textAndIcon { width: 90%; }
+  .wi-textAndIcon { width: 10%; }
+
+  .phone { width: $phone-width; }
+  .tablet { width: $tablet-width; }
+  .tablet-land { width: $tablet-land-width; }
+  .desktop { width: $desktop-width; }
+
+  .icon-small { width: .75rem; height: .75rem; }
+  .icon-medium { width: 1rem; height: 1rem; }
+  .icon-large { width: 1.25rem; height: 1.25rem; }
+  .icon-xlarge { width: 1.5rem; height: 1.5rem; }
+  .icon-default { fill: rgb(22, 50, 92); /* for svg icons, this matches the font color */ }
+  .icon-white { color: white; fill: white; }
+  .icon-gray { color: #dadee2; fill: #dadee2; /* TODO find tokens for these */ }
+
+/*  TYPOGRAPHY  ============================================================================= */
+  .f1 { font-size: $font-size-xx-large; }
+  .f2 { font-size: $font-size-x-large; }
+  .f3 { font-size: $font-size-large; }
+  .f4 { font-size: $font-size-medium; }
+  .f5 { font-size: $font-size-small; }
+  .f6 { font-size: $font-size-x-small; }
+  .f-small { font-size: .75rem; }
+
+  .caps { text-transform: uppercase; }
+  .italic { font-style:italic; }
+
+  .fw-light { font-weight: 200; }
+  .fw-norm { font-weight: 400; }
+  .fw-bold { font-weight: 800; }
+
+  .tac { text-align: center; }
+  .tal { text-align: left; }
+  .tar { text-align: right; }
+
+  .text-plain { text-decoration: none; }
+  .list-plain { padding: 0; margin: 0; list-style-type: none; }
+  .list-horz li { display: inline-block; }
+
+
+/*  COLOR  ============================================================================= */
+  .bg-navy { background-color: $color-background-alt-inverse; }
+  .bg-navy-hov:hover { background-color: $color-background-alt-inverse; }
+  .bg-lblue { background-color: #2a94d6; /* TODO find a token for this */ }
+  .bg-lblue-hov:hover { background-color: #2a94d6; /* TODO find a token for this */ }
+  .bg-llblue-hov:hover { background-color: #5ebffc; /* TODO find a token for this */ }
+
+  .bg-region-dragged {
+      /* This is color-background-success, with some opacity. It's copied from
+        the production code */
+    background-color: rgba(75, 202, 129, 0.08);
+  }
+  .bg-region-dragged .sds-card {
+    /* some components have backgrounds, which should be cleared out when
+        dragging onto a region */
+    background-color: transparent;
+  }
+
+  .bg-white { background-color: white; }
+  .bg-canvas { background-color: #e4ecf4; /* TODO find a token for this */}
+  .bg-preview { background-color: rgb(244, 246, 249); /* TODO find a token for this */}
+  .bg-none { background: none; background-color: transparent; }
+  .bg-hov-lgray:hover { background-color: rgb(244, 246, 249); /* TODO find a token for this */ }
+
+  .b-gray { border-color: $color-border; }
+  .b-blue { border-color: $color-background-alt-inverse; }
+  .b-lblue { border-color: #2a94d6; /* TODO find a token for this */ }
+  .b-green { border-color: $color-background-success; }
+  .b-tabHeader { border-color: rgb(0, 112, 210); /* TODO find a token for this */}
+  .b-tabHeader-hov:hover { border-color: rgb(0, 112, 210); /* TODO find a token for this */}
+
+  .o-blue { outline-color: $color-background-alt-inverse; }
+  .o-lblue { outline-color: #2a94d6; /* TODO find a token for this */ }
+  .o-green { outline-color: $color-background-success; }
+
+  .text-white { color: white; }
+  .text-link { color: rgb(0, 95, 178); /* TODO find a token for this */ }
+  .text-link-hov:hover { color: rgb(0, 95, 178); /* TODO find a token for this */ }
+  .text-body { color: rgb(22, 50, 92); /* TODO find a token for this */ }
+  .text-body-alt { color: rgb(84, 105, 141); /* TODO find a token for this */}
+
+/* BORDER WIDTHS & STYLE ============================================================================= */
+  .ban { border: none !important; }
+  .bas { border-width: 1px; border-style: solid; }
+  .bad { border-width: 1px; border-style: dotted; }
+  .bls { border-left-width: 1px; border-left-style: solid; }
+  .brs { border-right-width: 1px; border-right-style: solid; }
+  .bts { border-top-width: 1px; border-top-style: solid; }
+  .bbs { border-bottom-width: 1px; border-bottom-style: solid; }
+  .bbm { border-bottom-width: 2px; border-bottom-style: solid; }
+  .bbm-hov:hover { border-bottom-width: 2px; border-bottom-style: solid; }
+
+  .oas { outline-width: 1px; outline-style: solid; }
+  .oam { outline-width: 2px; outline-style: solid; }
+
+  .br-s { border-radius: $border-radius-small; }
+  .br-m { border-radius: $border-radius-medium; }
+  .br-l { border-radius: $border-radius-large; }
+  .br-pill { border-radius: $border-radius-pill; }
+  .br-circle { border-radius: $border-radius-circle; }
+
+/* COMPONENTS ============================================================================= */
+img { max-width: 100%; }
+form .input-field {
+  font-size: .75rem;
+}
+.input-field, textarea {
+  padding: .5rem;
+  border-radius: $border-radius-medium;
+  border: 1px solid $color-border;
+}
+.input-field:not(.read-only):active,
+.input-field:not(.read-only):focus {
+  /* copied from production */
+  outline: 0;
+  border-color: rgb(21, 137, 238);
+  box-shadow: 0 0 3px #0070d2;
+}
+form .input-label {
+  /* mvs */
+  margin-bottom: .5rem;
+  margin-top: .5rem;
+
+  font-size: .75rem;
+}
+.resize-vert { resize: vertical; }
+
+.dropTarget {
+  pointer-events: none;
+}
+.dropTarget[data-droptarget-hidden="true"] .dropTargetLine {
+  display: none;
+}
+.dropTarget[data-droptarget-hidden="false"] .dropTargetText {
+  display: none;
+}
+.dropTargetLine {
+  margin-top: -2px; /* correct for the bottom border */
+  border-bottom-width: 4px;
+  border-bottom-style: solid;
+}
+
+/* MISC. ============================================================================= */
+  .asstText {
+    position: absolute;
+    border: 0;
+    clip-path: rect(1px, 1px, 1px, 1px);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    z-index: -1000;
+  }
+
+  .default-cursor { cursor: default; }
+  .pointer-cursor { cursor: pointer; }
+  .text-cursor { cursor: text; }
+  .truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .upper { text-transform: uppercase; }
+
+  .no-under { text-decoration: none; }
+
+  .required::after {
+    content: " *";
+    color: red;
+  }
+  .read-only,
+  .read-only:focus {
+    background-color: rgb(224, 229, 238);
+  }
+
+/* ==========================================================================
+   SPACING
+   - padding
+   - margin
+   ========================================================================== */
+
+/*   */
+
+  .pan  { padding: 0;      }
+  .paxs { padding: .25rem; }
+  .pas  { padding: .5rem;  }
+  .pam  { padding: 1rem;   }
+  .pal  { padding: 2rem;   }
+  .pax  { padding: 4rem;   }
+
+  .pln  { padding-left: 0;      }
+  .plxs { padding-left: .25rem; }
+  .pls  { padding-left: .5rem;  }
+  .plm  { padding-left: 1rem;   }
+  .pll  { padding-left: 2rem;   }
+  .plx  { padding-left: 4rem;   }
+
+  .prn  { padding-right: 0;      }
+  .prxs { padding-right: .25rem; }
+  .prs  { padding-right: .5rem;  }
+  .prm  { padding-right: 1rem;   }
+  .prl  { padding-right: 2rem;   }
+  .prx  { padding-right: 4rem;   }
+
+  .pbn  { padding-bottom: 0;      }
+  .pbxs { padding-bottom: .25rem; }
+  .pbs  { padding-bottom: .5rem;  }
+  .pbm  { padding-bottom: 1rem;   }
+  .pbl  { padding-bottom: 2rem;   }
+  .pbx  { padding-bottom: 4rem;   }
+
+  .ptn  { padding-top: 0;      }
+  .ptxs { padding-top: .25rem; }
+  .pts  { padding-top: .5rem;  }
+  .ptm  { padding-top: 1rem;   }
+  .ptl  { padding-top: 2rem;   }
+  .ptx  { padding-top: 4rem;   }
+
+  .pvn  { padding-top: 0;      padding-bottom: 0;      }
+  .pvxs { padding-top: .25rem; padding-bottom: .25rem; }
+  .pvs  { padding-top: .5rem;  padding-bottom: .5rem; }
+  .pvm  { padding-top: 1rem;   padding-bottom: 1rem; }
+  .pvl  { padding-top: 2rem;   padding-bottom: 2rem; }
+  .pvx  { padding-top: 4rem;   padding-bottom: 4rem; }
+
+  .phn  { padding-left: 0;      padding-right: 0;      }
+  .phxs { padding-left: .25rem; padding-right: .25rem; }
+  .phs  { padding-left: .5rem;  padding-right: .5rem;  }
+  .phm  { padding-left: 1rem;   padding-right: 1rem;   }
+  .phl  { padding-left: 2rem;   padding-right: 2rem;   }
+  .phx  { padding-left: 4rem;   padding-right: 4rem;   }
+
+  /* Margins */
+
+  .man  { margin: 0;       }
+  .maxs  { margin: .25rem; }
+  .mas  { margin: .5rem;   }
+  .mam  { margin: 1rem;    }
+  .mal  { margin: 2rem;    }
+  .max  { margin: 4rem;    }
+
+  .mln  { margin-left: 0;      }
+  .mlxs { margin-left: .25rem; }
+  .mls  { margin-left: .5rem;  }
+  .mlm  { margin-left: 1rem;   }
+  .mll  { margin-left: 2rem;   }
+  .mlx  { margin-left: 4rem;   }
+
+  .mrn  { margin-right: 0;      }
+  .mrxs { margin-right: .25rem; }
+  .mrs  { margin-right: .5rem;  }
+  .mrm  { margin-right: 1rem;   }
+  .mrl  { margin-right: 2rem;   }
+  .mrx  { margin-right: 4rem;   }
+
+  .mbn  { margin-bottom: 0;      }
+  .mbxs { margin-bottom: .25rem; }
+  .mbs  { margin-bottom: .5rem;  }
+  .mbm  { margin-bottom: 1rem;   }
+  .mbl  { margin-bottom: 2rem;   }
+  .mbx  { margin-bottom: 4rem;   }
+
+  .mtn  { margin-top: 0;      }
+  .mtxs { margin-top: .25rem; }
+  .mts  { margin-top: .5rem;  }
+  .mtm  { margin-top: 1rem;   }
+  .mtl  { margin-top: 2rem;   }
+  .mtx  { margin-top: 4rem;   }
+
+  .mvn  { margin-top: 0;      margin-bottom: 0;      }
+  .mvxs { margin-top: .25rem; margin-bottom: .25rem; }
+  .mvs  { margin-top: .5rem;  margin-bottom: .5rem;  }
+  .mvm  { margin-top: 1rem;   margin-bottom: 1rem;   }
+  .mvl  { margin-top: 2rem;   margin-bottom: 2rem;   }
+  .mvx  { margin-top: 4rem;   margin-bottom: 4rem;   }
+
+  .mhn  { margin-left: 0;      margin-right: 0;        }
+  .mhxs { margin-left: .25rem; margin-right: .25rem; }
+  .mhs  { margin-left: .5rem;  margin-right: .5rem;  }
+  .mhm  { margin-left: 1rem;   margin-right: 1rem;   }
+  .mhl  { margin-left: 2rem;   margin-right: 2rem;   }
+  .mhx  { margin-left: 4rem;   margin-right: 4rem;   }
+}

@@ -1,0 +1,300 @@
+@import "../../node_modules/@salesforce-ux/landmark/scss/design-tokens";
+
+.app-container {
+  margin: ($spacing-x-large) * 1.5 ($spacing-x-large) * 2;
+  width: 95%;
+
+  /* Dangit */
+  .custom-inline-edit-multi-name {
+    position: absolute;
+    z-index: 1;
+    transform: translateY(-10%);
+    background: #FFF;
+    border-radius: 4px;
+    border: 1px solid #EEE;
+    box-shadow: 0px 2px 2px 0px rgba(0,0,0,.16);
+    width: 400px;
+  }
+  .custom-inline-edit-cancel-layer {
+    width: 100%;
+    height: 100%;
+    background: none;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    z-index: 0 !important;
+  }
+  .sds-hidden {
+    display: none !important;
+  }
+
+  tr:hover .anchor-edit-spike .sds-icon, {
+    opacity: 1;
+  }
+
+  .tile {
+    padding: 1rem !important;
+
+    &:hover {
+      background: #F4F6F9;
+      padding: 1rem;
+
+      .sds-icon, {
+        opacity: 1;
+      }
+    }
+  }
+
+  .anchor-edit-spike .sds-icon:hover, .anchor-edit-spike .sds-icon:focus {
+    opacity: 1;
+  }
+  .anchor-edit-spike .sds-icon:hover, .anchor-edit-spike .sds-icon:focus {
+    fill: #0070D2;
+  }
+
+  // .anchor-edit-spike {
+  //   width: 60% !important;
+  //   &:hover {
+  //     background: rgb(230, 233, 239) !important;
+  //   }
+  // }
+
+  /* Dangit */
+
+  .p200-nav-left {
+    position: fixed;
+    top: 0; left: 0;
+    width: ($spacing-x-large) * 2; height: 100%;
+    z-index: 5;
+
+    svg.sds-icon {
+      // margin: $spacing-xx-small 0;
+      // Need to map bgcolor on 'active'
+      background-color: #061c3f !important;
+    }
+  }
+
+  .p200-nav-top {
+    position: fixed;
+    top: 0; left: ($spacing-x-large) * 2;
+    width: 100%; height: ($spacing-x-large) * 1.5;
+    box-shadow: $elevation-shadow-2;
+    background-color: $color-background-alt;
+    z-index: 5;
+    padding: $spacing-x-small 0 0 0;
+
+    .icon-nav-top {
+      fill: $color-text-input-icon;
+      width: $size-x-small; height: $size-x-small;
+    }
+
+    .icon-nav-top-avatar {
+      border-radius: 50%;
+      width: $square-icon-small-boundary; height: $square-icon-small-boundary;
+    }
+    .fake-link {
+      margin: 0 10px;
+    }
+    .right-align-this {
+      float: right;
+      width: 275px;
+      margin: $spacing-xx-small 0 0 0;
+    }
+  }
+
+  .p200 {
+    .tile {
+      margin: 20px 0;
+      padding: 0 0 20px 0;
+      border-bottom: 2px solid $color-border-separator;
+    }
+  }
+
+  .modalBaseOne {
+    .sds-modal__content {
+      padding: 0 !important;
+    }
+    .searchBar {
+      background-color: $color-background;
+      height: ($spacing-medium) * 4;
+
+      .sds-form-element {
+        margin: $spacing-medium 0 0 0;
+      }
+    }
+  }
+
+  .anchor-edit-spike {
+    .sds-icon {
+      opacity: 0.09;
+      fill: $color-background-actionbar-icon-utility;
+      width: 16px; height: 16px;
+      cursor: pointer;
+    }
+
+    &:hover, &:focus {
+      .sds-icon {
+        opacity: 1;
+      }
+    }
+  }
+
+
+
+  .sds-dialog {
+    max-width: 50rem !important;
+  }
+
+  // NEW APPS THROBBING ICON
+  $blue_deep: #15325C;
+  $app_green: #00b2a9;
+  $app_blue: #418fde;
+  $app_cobalt: #001871;
+  $app_purple: #963cbd;
+  $app_orange: #ed8b00;
+  $app_yellow: #ffb60f;
+
+  $duration-quickly: 100ms;
+  $duration-promptly: 200ms;
+  $duration-slowly: 400ms;
+  $duration-paused: 3200ms;
+
+  svg.svg-rachel-throb {
+    float: left;
+    color: #9FAAB5;
+    width: 20px; height: 20px;
+    path {transform: scale(1);}
+    &:hover {
+      cursor: pointer;
+      .r1, .r2, .r3 { fill: $app_blue }
+      .r4, .r5, .r7 { fill: $app_orange }
+      .r6, .r8, .r9 { fill: $app_yellow }
+      .throb & path {
+        // animation: throb 2 $duration-promptly alternate;
+      }
+    }
+    path{
+      transition: fill $duration-quickly;
+      transform-origin: 50% 50%;
+    }
+  }
+
+  @keyframes throb {
+    100% { transform: scale(1.5); }
+  }
+
+
+  #apps4 {
+    margin: 2px 5px 0 0;
+    &:hover {
+      .r2, .r4 { animation-delay: $duration-quickly; }
+      .r3, .r5, .r7 { animation-delay: $duration-quickly * 2; }
+      .r6, .r8 { animation-delay: $duration-quickly * 3; }
+      .r9 { animation-delay: $duration-quickly * 4; }
+    }
+  }
+
+
+
+  // SINGLE PURPOSE CLASSES
+  // MARGIN SMALL
+  .mt-small {
+    margin-top: $spacing-small;
+  }
+  .mr-small {
+    margin-right: $spacing-small;
+  }
+  .mb-small {
+    margin-bottom: $spacing-small;
+  }
+  .ml-small {
+    margin-left: $spacing-small;
+  }
+  .ma-small {
+    margin: $spacing-small;
+  }
+  // MARGIN MEDIUM
+  .mt-medium {
+    margin: $spacing-medium 0 0 0;
+  }
+  .mr-medium {
+    margin: 0 $spacing-medium 0 0;
+  }
+  .mb-medium {
+    margin: 0 0 $spacing-medium 0;
+  }
+  .ml-medium {
+    margin: 0 0 0 $spacing-medium;
+  }
+  .ma-medium {
+    margin: $spacing-medium;
+  }
+  // MARGIN LARGE
+  .mt-large {
+    margin: $spacing-large 0 0 0;
+  }
+  .mr-large {
+    margin: 0 $spacing-large 0 0;
+  }
+  .mb-large {
+    margin: 0 0 $spacing-large 0;
+  }
+  .ml-large {
+    margin: 0 0 0 $spacing-large;
+  }
+  .ma-large {
+    margin: $spacing-large;
+  }
+  // PADDING small
+  .pt-small {
+    padding: $spacing-small 0 0 0;
+  }
+  .pr-small {
+    padding: 0 $spacing-small 0 0;
+  }
+  .pb-small {
+    padding: 0 0 $spacing-small 0;
+  }
+  .pl-small {
+    padding: 0 0 0 $spacing-small;
+  }
+  .pa-small {
+    padding: $spacing-small;
+  }
+  // PADDING MEDIUM
+  .pt-medium {
+    padding: $spacing-medium 0 0 0;
+  }
+  .pr-medium {
+    padding: 0 $spacing-medium 0 0;
+  }
+  .pb-medium {
+    padding: 0 0 $spacing-medium 0;
+  }
+  .pl-medium {
+    padding: 0 0 0 $spacing-medium;
+  }
+  .pa-medium {
+    padding: $spacing-medium;
+  }
+  // PADDING LARGE
+  .pt-large {
+    padding: $spacing-large 0 0 0;
+  }
+  .pr-large {
+    padding: 0 $spacing-large 0 0;
+  }
+  .pb-large {
+    padding: 0 0 $spacing-large 0;
+  }
+  .pl-large {
+    padding: 0 0 0 $spacing-large;
+  }
+  .pa-large {
+    padding: $spacing-large;
+  }
+  // BORDER-LEFT
+  .bl {
+    border-left: 2px solid $color-border-separator;
+  }
+}

@@ -1,0 +1,469 @@
+/* ---------------------------------------------------------------------------
+ Copyright (c) 2015, salesforce.com, inc. All rights reserved.
+ Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+ Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. Neither the name of salesforce.com, inc. nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+@import "../../node_modules/@salesforce-ux/landmark/scss/design-tokens";
+@import "../../node_modules/@salesforce-ux/landmark/scss/dependencies/index";
+@import "../../node_modules/@salesforce-ux/landmark/scss/utilities/index";
+
+// This page styles the examples on the Motion and Animation page.
+
+@keyframes site-mass-jiggle-keyframes {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+
+  20% {
+    transform: translate(-50%, -55%);
+  }
+
+  40% {
+    transform: translate(-50%, -40%);
+  }
+
+  60% {
+    transform: translate(-50%, -55%);
+  }
+
+  80% {
+    transform: translate(-50%, -48%);
+  }
+
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes site-mass-shake-keyframes {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+
+  20% {
+    transform: translate(-55%, -50%);
+  }
+
+  40% {
+    transform: translate(-40%, -50%);
+  }
+
+  60% {
+    transform: translate(-55%, -50%);
+  }
+
+  80% {
+    transform: translate(-48%, -50%);
+  }
+
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+
+.site-mass {
+  &__section,
+  &__section--shaded {
+    padding: $spacing-x-large;
+    margin: {
+      right: -$spacing-x-large;
+      left: -$spacing-x-large;
+    }
+
+    .site-mass__featured-item {
+      padding: {
+        top: $spacing-x-large;
+        bottom: $spacing-x-large;
+      }
+    }
+
+    figure {
+      margin: 0 auto;
+      max-width: 20rem;
+    }
+
+    .icon--large {
+      @include square(6rem);
+    }
+
+    figcaption,
+    dd {
+      padding-top: $spacing-medium;
+    }
+  }
+
+  &__section--shaded {
+    background-color: $color-background-shade;
+  }
+
+  .tiled-container {
+    max-width: 10rem;
+    margin: 0 auto;
+  }
+
+  &__atmosphere-graph {
+    position: relative;
+    height: 27rem;
+    background: $color-background;
+    perspective: 500;
+  }
+
+  &__atmosphere-hlabel {
+    position: absolute;
+    left: 0;
+    transform: translateX(5.25rem);
+
+    span {
+      position: absolute;
+      top: -0.6rem;
+      right: 0.7rem;
+    }
+  }
+
+  &__atmosphere-hline {
+    position: absolute;
+    left: 5rem;
+    width: 1rem;
+    border-top: $border-width-thin solid $color-border-separator-alt-2;
+    transform: translateX(-1rem);
+  }
+
+  &__atmosphere-0-line {
+    left: 6rem;
+    right: 0;
+    width: auto;
+    border-top: $border-width-thick solid $color-border-separator-alt-2;
+  }
+
+  &__atmosphere-vertical-ruler {
+    position: absolute;
+    top: 0;
+    left: 5rem;
+    bottom: 0;
+    border-left: $border-width-thick solid $color-border-separator-alt-2;
+  }
+
+  &__elevation-dot {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    background-color: $article;
+    border-radius: $border-radius-circle;
+    transform: translate(-50%, 50%);
+
+    span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &__elevation-dot-flying {
+    bottom: 23rem;
+    left: 90%;
+    box-shadow: $elevation-shadow-16;
+  }
+
+  &__elevation-dot-floating {
+    bottom: 11rem;
+    left: 75%;
+    box-shadow: $elevation-shadow-4;
+  }
+
+  &__elevation-dot-raised {
+    bottom: 9rem;
+    left: 60%;
+    box-shadow: $elevation-shadow-2;
+  }
+
+  &__elevation-dot-grounded {
+    bottom: 7rem;
+    left: 45%;
+    box-shadow: $elevation-shadow-0;
+  }
+
+  &__elevation-dot-sunken {
+    bottom: 4rem;
+    left: 30%;
+    box-shadow: $elevation-shadow-3-below;
+  }
+
+  &__centered-figure {
+    padding: $spacing-medium;
+    text-align: center;
+
+    img {
+      max-height: 100px;
+    }
+  }
+
+  &__example-description {
+    position: absolute;
+    bottom: 0;
+    left: 0; 
+    width: 100%;
+    padding: $spacing-small;
+    text-align: center;
+    color: $color-text-weak;
+  }
+
+  &__example-frame {
+    position: relative;
+    width: 100%;
+    height: 13rem;
+    background-color: $color-background-shade;
+    perspective: 400;
+    user-select: none;
+    cursor: pointer;
+  }
+
+  &__example-tile {
+    @include square(5rem);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: $color-background-alt;
+    transform: translate(-50%, -50%);
+    border-radius: $border-radius-circle;
+    box-shadow: $elevation-shadow-4;
+
+    span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: $font-size-large;
+    }
+  }
+
+  &__example-title {
+    position: absolute;
+    top: 0;
+    left: 0; 
+    width: 100%;
+    text-align: center;
+    padding: $spacing-small 0;
+
+    button {
+      background: transparent;
+      border: 0;
+    }
+  }
+
+  &__ornamental-icon {
+    max-height: 8rem;
+  }
+
+  &__color-example {
+    transition: $duration-promptly background-color linear;
+
+    span {
+      transition: $duration-promptly color linear;
+    }
+
+    &--on {
+      background-color: $article;
+
+      span {
+        color: $color-text-inverse;
+      }
+    }
+  }
+
+  &__elevation-example {
+    height: 9rem;
+    position: relative;
+
+    &:after {
+      @include square(5rem);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border-radius: $border-radius-circle;
+      background-color: $article;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &__fade-example {
+    transition: $duration-promptly opacity linear;
+
+    &--on {
+      opacity: 0;
+    }
+  }
+
+  &__fall-example {
+    transition: $duration-promptly all ease-in-out;
+    box-shadow: $elevation-shadow-8;
+
+    &--on {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.8);
+      box-shadow: $elevation-shadow-0;
+    }
+  }
+
+  &__flip-example {
+    transition: $duration-promptly transform ease-in-out;
+
+    &--on {
+      transform: translate(-50%, -50%) rotateY(180deg);
+    }
+  }
+
+  &__grow-example {
+    transition: $duration-promptly transform ease-in-out;
+
+    &--on {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+  }
+
+  &__jiggle-example {
+    &--on {
+      animation: site-mass-jiggle-keyframes $duration-slowly forwards;
+    }
+  }
+
+  &__lower-example {
+    transition: $duration-promptly transform ease-in-out, $duration-promptly box-shadow ease-in-out;
+    box-shadow: $elevation-shadow-8;
+
+    &--on {
+      transform: translate(-50%, -50%) scale(0.9);
+      box-shadow: $elevation-shadow-4;
+    }
+  }
+
+  &__pop-example {
+    transition: $duration-promptly transform ease-in-out, $duration-promptly box-shadow ease-in-out;
+    box-shadow: $elevation-shadow-0;
+
+    &--on {
+      transform: translate(-50%, -50%) scale(1.1);
+      box-shadow: $elevation-shadow-4;
+    }
+  }
+
+  &__punch-example {
+    transition: $duration-promptly box-shadow ease-in-out;
+    box-shadow: $elevation-shadow-0;
+
+    span {
+      transition: $duration-promptly transform ease-in-out;
+    }
+
+    &--on {
+      box-shadow: $elevation-shadow-3-below;
+
+      span {
+        transform: translate(-50%, -50%) scale(0.95);
+      }
+    }
+  }
+
+  &__raise-example {
+    transition: $duration-promptly transform ease-in-out, $duration-promptly box-shadow ease-in-out;
+    box-shadow: $elevation-shadow-4;
+
+    &--on {
+      transform: translate(-50%, -50%) scale(1.1);
+      box-shadow: $elevation-shadow-8;
+    }
+  }
+
+  &__roll-example {
+    transition: $duration-promptly transform ease-in-out, $duration-promptly box-shadow ease-in-out;
+
+    &--on {
+      transform: translate(-50%, -50%) rotateX(180deg);
+      box-shadow: $elevation-inverse-shadow-4;
+    }
+  }
+
+  &__shake-example--on {
+    animation: site-mass-shake-keyframes $duration-slowly forwards;
+  }
+
+  &__shrink-example {
+    transition: $duration-promptly transform ease-in-out;
+
+    &--on {
+      transform: translate(-50%, -50%) scale(0.9);
+    }
+  }
+
+  &__slide-example {
+    transition: $duration-promptly transform ease-in-out, $duration-promptly opacity ease-in-out;
+
+    &--on {
+      transform: translate(-25%, -50%);
+      opacity: 0;
+    }
+  }
+
+  &__spin-example {
+    transition: $duration-promptly transform ease-in-out, $duration-promptly box-shadow ease-in-out;
+
+    &--on {
+      transform: translate(-50%, -50%) rotate(180deg);
+      box-shadow: $elevation-inverse-shadow-4;
+    }
+  }
+
+  &__tilt-example {
+    transition: $duration-promptly transform ease-in-out, $duration-promptly box-shadow ease-in-out;
+
+    &--on {
+      transform: translate(-50%, -50%) rotateX(30deg);
+      box-shadow: $elevation-shadow-8;
+    }
+  }
+
+  &__twist-example {
+    transition: $duration-promptly transform ease-in-out;
+
+    &--on {
+      transform: translate(-50%, -50%) rotate(25deg);
+    }
+  }
+
+  // Examples
+
+  .toast-notification-example {
+    position: fixed;
+    top: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .toast-example-enter {
+    top: 2rem;
+    opacity: 0;
+    transition: top $duration-promptly ease-in-out, opacity $duration-promptly linear;
+  }
+  .toast-example-enter.toast-example-enter-active {
+    top: 3rem;
+    opacity: 1;
+  }
+
+  .toast-example-leave {
+    top: 3rem;
+    opacity: 1;
+    transition: top $duration-promptly ease-in-out, opacity $duration-promptly linear;
+  }
+  .toast-example-leave.toast-example-leave-active {
+    top: 2rem;
+    opacity: 0;
+  }
+
+  // Utilities
+
+  .centered {
+    text-align: center;
+  }
+}
