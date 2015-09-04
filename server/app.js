@@ -11,10 +11,20 @@ var helpers = require('./common/helpers');
 
 var routes = require('./routes');
 
+var request = require('request');
+
 var app = express();
 var expressLayouts = require('express-ejs-layouts');
 
 var auth = require('./auth');
+
+app.get('/frameContent', function(req, response) {
+  request({
+    uri: "http://fitbit.com"
+  }, function(err, resp, body) {
+    response.send(body);
+  });
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

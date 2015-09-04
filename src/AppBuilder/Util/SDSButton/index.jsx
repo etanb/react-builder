@@ -10,7 +10,7 @@ export default class SDSButton extends React.Component {
     }
 
     return (
-      <button className={classes}>
+      <button className={classes} onClick={this.props.onClick}>
         {this.props.children}
       </button>
     );
@@ -18,5 +18,6 @@ export default class SDSButton extends React.Component {
 }
 
 SDSButton.propTypes = {
-  extraCss: React.PropTypes.string
+  extraCss: React.PropTypes.string,
+  onClick: React.PropTypes.func
 };

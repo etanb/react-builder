@@ -5,8 +5,16 @@ import FormFactorSwitcher from './FormFactorSwitcher';
 import SrinkToView from './SrinkToView';
 import Asset from '../Util/Asset';
 import SDSButton from '../Util/SDSButton';
+import $ from 'jquery';
 
 export default class Toolbar extends React.Component {
+  renderIframe() {
+    var that = this;
+    $.get('/frameContent', {uri: $('#iframeUrl').val()}, function() {
+      that.props.setLivePreview(true);
+    });
+  }
+
   render() {
     return (
       <div className="h-toolbar bbs b-gray flex-row flex-center">
@@ -33,15 +41,21 @@ export default class Toolbar extends React.Component {
         </div>
 
         <div className="prm flex-nogrow flex-row">
+          <input type="text" id="iframeUrl"
+                      placeholder="Enter a URL"
+                      className="input-field" />
+          <SDSButton onClick={this.renderIframe.bind(this)}>Preview in Site</SDSButton>
           <SDSButton extraCss="fw-bold">Save</SDSButton>
-          <SDSButton extraCss="mll fw-bold">Activation...</SDSButton>
         </div>
       </div>
     );
+
+
   }
 }
 
 Toolbar.propTypes = {
   device: React.PropTypes.object.isRequired,
-  selectDevice: React.PropTypes.func
+  selectDevice: React.PropTypes.func,
+  setLivePreview: React.PropTypes.func
 };
