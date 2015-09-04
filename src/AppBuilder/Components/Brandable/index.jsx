@@ -30,7 +30,7 @@ export default class Brandable extends Component {
     	<div style={styles.brandCircle}>
     		<div style={styles.brandFont}>
     			<Component {...this.props}>
-    			  <div className="hmin-small">{this.props.component.props.value}</div>
+    			  <div className="hmin-small">{this.props.component.props.quote}</div>
     			</Component>
     		</div>
     	</div>

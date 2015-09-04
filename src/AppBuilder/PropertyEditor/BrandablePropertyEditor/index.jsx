@@ -9,27 +9,27 @@ export default class RichTextPropertyEditor extends ComponentPropertyEditor {
   };
 
   handleCircleColor(evt) {
-    this.props.pageModel.updateComponent(this.props.component.id, {
+    this.props.pageModel.getComponent(this.props.component.id, {
       circlecolor: evt.target.value
     });
   };
 
   handleFontColor(evt) {
-    this.props.pageModel.updateComponent(this.props.component.id, {
+    this.props.pageModel.getComponent(this.props.component.id, {
       fontcolor: evt.target.value
     });
   };
 
   handleFontFamily(evt) {
-    this.props.pageModel.updateComponent(this.props.component.id, {
+    this.props.pageModel.getComponent(this.props.component.id, {
       fontfamily: evt.target.value
     });
   };
 
   handleQuote(evt) {
-    this.props.pageModel.updateComponent(this.props.component.id, {
-      quote: evt.target.quote
-    });
+    this.props.pageModel.getComponent(this.props.component.id).props.quote = evt.target.value
+
+    this.props.pageModel.updateComponent(this.props.component.id, this.props.component.props)
   };
 
   render() {
@@ -37,7 +37,7 @@ export default class RichTextPropertyEditor extends ComponentPropertyEditor {
       <form>
         <label htmlFor="richText" className="asstTex">Rich Text</label>
         <h1>BRANDING PROPERTIES:</h1>
-        <p>Circle Color:</p>
+        <p>Circle Color:</p> 
         <input type="text" id="circlecolor" circlecolor={this.props.component.props.value}
                   className="mvm pvxs br-s w-full resize-vert"
                   onChange={this.handleCircleColor.bind(this)}></input>
