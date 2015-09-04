@@ -24,6 +24,7 @@ export default class ComponentPalette extends React.Component {
       AppBuilderData.CMP_TYPE.REPORT_CHART,
       AppBuilderData.CMP_TYPE.RICH_TEXT,
       AppBuilderData.CMP_TYPE.VISUALFORCE,
+      AppBuilderData.CMP_TYPE.BRANDABLE
     ];
 
     return itemTypes.map(function(itemType) {

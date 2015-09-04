@@ -7,6 +7,26 @@ $tablet-land-width: 1024px;
 $desktop-width: 1440px;
 
 .app-builder-container {
+  
+  /* RSS Custom CSS */
+
+  .brand-container {
+    margin: 0 auto;
+    background-color: black;
+    height: 450px;
+    width: 450px;
+    border-radius: 500px;
+  }
+
+  .brand-font {
+    color: yellow;
+    padding-top: 200px;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  /* End */
+
 
   /* TODO reference h-full here */
   height: 100%;
@@ -142,7 +162,6 @@ $desktop-width: 1440px;
 
   .bg-white { background-color: white; }
   .bg-canvas { background-color: #e4ecf4; /* TODO find a token for this */}
-  .bg-preview { background-color: rgb(244, 246, 249); /* TODO find a token for this */}
   .bg-none { background: none; background-color: transparent; }
   .bg-hov-lgray:hover { background-color: rgb(244, 246, 249); /* TODO find a token for this */ }
 

@@ -21,14 +21,6 @@ export default class Canvas extends React.Component {
                     pageModel={this.props.pageModel}
                     selectComponent={this.props.selectComponent}
                     selectedComponent={this.props.selectedComponent} />
-            <Region regionId="regionB"
-                    pageModel={this.props.pageModel}
-                    selectComponent={this.props.selectComponent}
-                    selectedComponent={this.props.selectedComponent} />
-            <Region regionId="regionC"
-                    pageModel={this.props.pageModel}
-                    selectComponent={this.props.selectComponent}
-                    selectedComponent={this.props.selectedComponent} />
           </div>
         </div>
       </section>

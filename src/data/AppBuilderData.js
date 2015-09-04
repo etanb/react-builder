@@ -6,6 +6,7 @@ import TabSet from '../AppBuilder/Components/TabSet';
 import FilterList from '../AppBuilder/Components/FilterList';
 import Section from '../AppBuilder/Components/Section';
 import MockedComponent from '../AppBuilder/Components/MockedComponent';
+import Brandable from '../AppBuilder/Components/Brandable';
 
 //Property Editors
 import FlexipagePropertyEditor from '../AppBuilder/PropertyEditor/FlexipagePropertyEditor';
@@ -21,6 +22,7 @@ import RelatedListsPropertyEditor from '../AppBuilder/PropertyEditor/RelatedList
 import ReportChartPropertyEditor from '../AppBuilder/PropertyEditor/ReportChartPropertyEditor';
 import VisualforcePropertyEditor from '../AppBuilder/PropertyEditor/VisualforcePropertyEditor';
 import HighlightsPropertyEditor from '../AppBuilder/PropertyEditor/HighlightsPropertyEditor';
+import BrandablePropertyEditor from '../AppBuilder/PropertyEditor/BrandablePropertyEditor';
 
 /********* BEGIN STATIC ENUMS ********************************/
 /**
@@ -42,7 +44,8 @@ var CMP_TYPE = {
   RELATED_LISTS: 'RELATED_LISTS',
   REPORT_CHART: 'REPORT_CHART',
   VISUALFORCE: 'VISUALFORCE',
-  HIGHLIGHTS: 'HIGHLIGHTS'
+  HIGHLIGHTS: 'HIGHLIGHTS',
+  BRANDABLE: 'BRANDABLE'
 };
 
 var DEVICES = [
@@ -84,6 +87,17 @@ var richTextDef = {
   },
   propEditor: RichTextPropertyEditor,
   description: 'Displays HTML-formatted rich text'
+};
+
+var brandableDef = {
+  icon: 'highlights',
+  label: 'Brandable Properties',
+  reactCmp: Brandable,
+  initProps: {
+    value: ''
+  },
+  propEditor: BrandablePropertyEditor,
+  description: 'Brandable editor'
 };
 
 var tabSetDef = {
@@ -261,6 +275,8 @@ function getComponentDef(type) {
       return visualforceDef;
     case CMP_TYPE.HIGHLIGHTS:
       return highlightsDef;
+    case CMP_TYPE.BRANDABLE:
+      return brandableDef;
     default:
       throw 'Unsupported component type: ' + type;
   };
