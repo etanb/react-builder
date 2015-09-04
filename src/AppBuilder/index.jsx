@@ -12,6 +12,8 @@ if (__CLIENT__) {
   require('./index.scss');
 }
 
+require('jquery');
+
 const AppBuilderModel = require('../data/AppBuilderModel.js');
 const AppBuilderData = require('../data/AppBuilderData.js');
 
@@ -27,7 +29,8 @@ export default class AppBuilder extends React.Component {
     this.state = {
       device: AppBuilderData.DEVICES[0],
       selectedComponent: pageId,
-      pageModel: new AppBuilderModel(pageId, regionIds)
+      pageModel: new AppBuilderModel(pageId, regionIds), 
+      livePreview: false
     };
 
     this.state.pageModel.onModelChange(function() {
@@ -53,6 +56,10 @@ export default class AppBuilder extends React.Component {
 
   selectDevice(selection) {
     this.setState({ device:selection });
+  }
+
+  setLivePreview(onOrOff) {
+    this.setState({livePreview: onOrOff});
   }
 
   /**
@@ -83,13 +90,15 @@ export default class AppBuilder extends React.Component {
       <section className="app-builder-container">
         <section className="h-full flex-col">
           <Header pageModel={this.state.pageModel}/>
-          <Toolbar device={this.state.device} selectDevice={this.selectDevice} />
+          <Toolbar device={this.state.device} selectDevice={this.selectDevice} 
+            setLivePreview={this.setLivePreview.bind(this)}/>
           <main className="flex-row flex-grow">
             <Palette />
             <Canvas deviceCssClass={this.state.device.cssClass}
                     selectComponent={this.selectComponent.bind(this)}
                     selectedComponent={this.state.selectedComponent}
-                    pageModel={this.state.pageModel} />
+                    pageModel={this.state.pageModel} 
+                    livePreview={this.state.livePreview}/>
             <PropertyEditor selectedComponent={this.state.selectedComponent}
                             pageModel={this.state.pageModel}
                             selectPage={this.selectPage.bind(this)} />
