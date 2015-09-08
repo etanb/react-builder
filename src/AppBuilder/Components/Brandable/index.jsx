@@ -12,14 +12,15 @@ export default class Brandable extends Component {
   	var styles = {
 		brandCircle: {
 			margin: '0 auto',
-		    backgroundColor: 'black',
+		    backgroundColor: this.props.component.props.circlecolor,
 		    height: 450,
 		    width: 450,
 		    borderRadius: 500
 		},
 
 		brandFont: {
-			color: 'yellow',
+			fontFamily: this.props.component.props.fontfamily,
+			color: this.props.component.props.fontcolor,
 		    paddingTop: 200,
 		    paddingLeft: 50,
 		    paddingRight: 50
