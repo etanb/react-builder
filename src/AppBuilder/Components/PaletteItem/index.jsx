@@ -4,6 +4,8 @@ import React from 'react';
 import Draggable from '../../Util/Draggable';
 import Asset from '../../Util/Asset';
 
+var $ = require('jquery');
+
 const AppBuilderData = require('../../../data/AppBuilderData.js');
 
 export default class PaletteItem extends React.Component {
@@ -13,13 +15,20 @@ export default class PaletteItem extends React.Component {
     return <Asset iconKey={iconKey} extraCss="icon-large icon-default mrs"/>
   }
 
+  onClick() {
+    React.render(
+      React.createElement(AppBuilderData.getComponentDef(this.props.cmpType).reactCmp), 
+      $('#iFrame').contents().find('#widgetContainer')[0]);
+  }
+
   render() {
     var cmpDef = AppBuilderData.getComponentDef(this.props.cmpType);
 
     return (
       <Draggable data={{cmpType: this.props.cmpType}}>
         {/* ^^^ Giving data to the draggable will indicate to the region that it should add a new component */}
-        <div className="paxs bg-white br-m text-body-alt text-link-hov" title={cmpDef.label + '\n' + cmpDef.description}>
+        <div className="paxs bg-white br-m text-body-alt text-link-hov" title={cmpDef.label + '\n' + cmpDef.description}
+        onClick={this.onClick.bind(this)}>
           {this.renderIcon()}
           <span className="a-mid">{cmpDef.label}</span>
         </div>

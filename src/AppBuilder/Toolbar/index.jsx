@@ -9,10 +9,19 @@ import $ from 'jquery';
 
 export default class Toolbar extends React.Component {
   renderIframe() {
-    var that = this;
-    $.get('/frameContent', {uri: $('#iframeUrl').val()}, function() {
-      that.props.setLivePreview(true);
-    });
+    // $('#iFrame')[0].onload = function () {
+    //   //append css
+    //   // var $head = $("#iframe").contents().find("head");
+    //   // $head.append($("<link/>", { rel: "stylesheet", href: "/styles.css", type: "text/css" }));
+
+    //   //append container
+    //   $('<div id="widgetContainer"></div>').appendTo($('#iframe').contents().find('body'));
+
+    //   //render the button
+    //   $R.render(React.createElement(Button, null), $('#iframe').contents().find('#widgetContainer')[0]);
+    // };
+
+    this.props.setLivePreview($('#iframeUrl').val());
   }
 
   render() {

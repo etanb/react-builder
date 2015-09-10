@@ -19,9 +19,13 @@ var expressLayouts = require('express-ejs-layouts');
 var auth = require('./auth');
 
 app.get('/frameContent', function(req, response) {
+  console.log(req.query.frameUrl);
   request({
-    uri: "http://fitbit.com"
+    url: 'http://' + req.query.frameUrl
   }, function(err, resp, body) {
+    console.log('Error: ' + err);
+    console.log(resp);
+    console.log(body);
     response.send(body);
   });
 });

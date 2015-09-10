@@ -40,8 +40,9 @@ export default class Component extends React.Component {
   }
 
   click(evt) {
-    this.props.selectComponent(this.props.component.id);
-    evt.stopPropagation();
+    // this.props.selectComponent(this.props.component.id);
+    // evt.stopPropagation();
+    alert('hi!');
   }
 
   stopDragBubbling(evt) {
@@ -122,10 +123,10 @@ export default class Component extends React.Component {
 
 Component.propTypes = {
   stopDragBubbling: React.PropTypes.bool,
-  component: React.PropTypes.object.isRequired,
-  selectComponent: React.PropTypes.func.isRequired,
-  selectedComponent: React.PropTypes.string.isRequired,
+  component: React.PropTypes.object,
+  selectComponent: React.PropTypes.func,
+  selectedComponent: React.PropTypes.string,
   //Nested components need the page model to pass to their inner regions
-  pageModel: React.PropTypes.object.isRequired //TODO check that it's actually instaceof AppBuilderModel
+  pageModel: React.PropTypes.object //TODO check that it's actually instaceof AppBuilderModel
 };
 

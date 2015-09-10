@@ -30,7 +30,7 @@ export default class AppBuilder extends React.Component {
       device: AppBuilderData.DEVICES[0],
       selectedComponent: pageId,
       pageModel: new AppBuilderModel(pageId, regionIds), 
-      livePreview: false
+      livePreview: null
     };
 
     this.state.pageModel.onModelChange(function() {
@@ -58,8 +58,8 @@ export default class AppBuilder extends React.Component {
     this.setState({ device:selection });
   }
 
-  setLivePreview(onOrOff) {
-    this.setState({livePreview: onOrOff});
+  setLivePreview(siteOrNil) {
+    this.setState({livePreview: siteOrNil});
   }
 
   /**
