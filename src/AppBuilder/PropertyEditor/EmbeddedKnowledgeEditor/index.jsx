@@ -3,7 +3,7 @@ import React from 'react';
 
 import ComponentPropertyEditor from '../ComponentPropertyEditor';
 
-export default class RichTextPropertyEditor extends ComponentPropertyEditor {
+export default class EmbeddedKnowledgeEditor extends ComponentPropertyEditor {
   constructor(props){
     super(props);
   };
@@ -33,7 +33,7 @@ export default class RichTextPropertyEditor extends ComponentPropertyEditor {
       <form>
         <label htmlFor="richText" className="asstTex">Rich Text</label>
         <h1>BRANDING PROPERTIES:</h1>
-        <p>Circle Color:</p> 
+        <p>Background Color:</p> 
         <input type="color" id="circlecolor" circlecolor={this.props.component.props.value}
                   className="mvm pvxs br-s w-full resize-vert"
                   onChange={this.handleCircleColor.bind(this)}></input>
@@ -47,10 +47,6 @@ export default class RichTextPropertyEditor extends ComponentPropertyEditor {
           <option>Arial</option>
           <option>Times New Roman</option>
         </select>
-        <p>Quote:</p>
-        <textarea type="text" id="quote" quote={this.props.component.props.value}
-                  className="mvm pvxs br-s w-full resize-vert"
-                  onChange={this.handleQuote.bind(this)}></textarea>
       </form>
     );
   }

@@ -10,19 +10,59 @@ $desktop-width: 1440px;
   
   /* RSS Custom CSS */
 
-  .brand-container {
-    margin: 0 auto;
-    background-color: black;
-    height: 450px;
-    width: 450px;
-    border-radius: 500px;
+  .embeddedHelpMainContainer {
+      border: 0px;
+      border-image-source: initial;
+      border-image-slice: initial;
+      border-image-width: initial;
+      border-image-outset: initial;
+      border-image-repeat: initial;
+      top: 0px;
+      height: 100%;
+      width: 400px;
+      background: rgb(247, 247, 247);
+      box-shadow: rgba(0, 0, 0, 0.2) -2px 0px 7px 0px;
+      z-index: 100000;
   }
 
-  .brand-font {
-    color: yellow;
-    padding-top: 200px;
-    padding-left: 50px;
-    padding-right: 50px;
+  .embeddedHelpBtn {
+      color: white;
+      background: darkblue;
+      font-size: 16px;
+      padding: 10px 30px;
+      border: 0;
+      box-shadow: 0px 0px 10px #777777;
+      width: 150px;
+  }
+
+  .singleTrendingArticle {
+      padding: 20px 0px;
+      border-bottom: 1px solid rgb(229, 229, 229);
+  }
+
+  .singleTrendingArticle img {
+      width: 50px;
+      height: 50px;
+      float: left;
+      padding: 0px 20px;
+      display: inline-block;
+  }
+
+  .singleTrendingArticle .articleData {
+      display: inline-block;
+      width: 75%;
+  }
+
+  .singleTrendingArticle .articleTitle {
+      font-weight: bold;
+  }
+
+  .singleTrendingArticle .articleSummary {
+      padding: 10px 0px;
+  }
+
+  .singleTrendingArticle .upVote, .singleTrendingArticle .downVote {
+      display: inline-block;
   }
 
   /* End */

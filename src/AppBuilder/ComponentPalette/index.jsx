@@ -12,19 +12,11 @@ export default class ComponentPalette extends React.Component {
      * Add your standard items here
      */
     var itemTypes = [
-      AppBuilderData.CMP_TYPE.TAB_SET,
-      //TODO AppBuilderData.CMP_TYPE.SECTION, is still in progress
-      AppBuilderData.CMP_TYPE.ACTIVITIES,
-      AppBuilderData.CMP_TYPE.FEED,
-      AppBuilderData.CMP_TYPE.FILTER_LIST,
-      AppBuilderData.CMP_TYPE.HIGHLIGHTS,
-      AppBuilderData.CMP_TYPE.RECENT_ITEMS,
-      AppBuilderData.CMP_TYPE.RECORD_DETAIL,
-      AppBuilderData.CMP_TYPE.RELATED_LISTS,
-      AppBuilderData.CMP_TYPE.REPORT_CHART,
-      AppBuilderData.CMP_TYPE.RICH_TEXT,
-      AppBuilderData.CMP_TYPE.VISUALFORCE,
-      AppBuilderData.CMP_TYPE.BRANDABLE
+      AppBuilderData.CMP_TYPE.BRANDABLE,
+      AppBuilderData.CMP_TYPE.EMBEDDEDCHAT,
+      AppBuilderData.CMP_TYPE.EMBEDDEDCHATBUTTON,
+      AppBuilderData.CMP_TYPE.EMBEDDEDKNOWLEDGE,
+      AppBuilderData.CMP_TYPE.EMBEDDEDPRECHAT
     ];
 
     return itemTypes.map(function(itemType) {

@@ -3,28 +3,28 @@ import React from 'react';
 
 import ComponentPropertyEditor from '../ComponentPropertyEditor';
 
-export default class RichTextPropertyEditor extends ComponentPropertyEditor {
+export default class EmbeddedChatButtonEditor extends ComponentPropertyEditor {
   constructor(props){
     super(props);
   };
 
-  handleCircleColor(evt) {
-    this.props.pageModel.getComponent(this.props.component.id).props.circlecolor = evt.target.value
+  handleButtonColor(evt) {
+    this.props.pageModel.getComponent(this.props.component.id).props.buttonbackground = evt.target.value
     this.props.pageModel.updateComponent(this.props.component.id, this.props.component.props)
   };
 
   handleFontColor(evt) {
-    this.props.pageModel.getComponent(this.props.component.id).props.fontcolor = evt.target.value
+    this.props.pageModel.getComponent(this.props.component.id).props.buttontext = evt.target.value
     this.props.pageModel.updateComponent(this.props.component.id, this.props.component.props)
   };
 
   handleFontFamily(evt) {
-    this.props.pageModel.getComponent(this.props.component.id).props.fontfamily = evt.target.value
+    this.props.pageModel.getComponent(this.props.component.id).props.buttonfont = evt.target.value
     this.props.pageModel.updateComponent(this.props.component.id, this.props.component.props)
   };
 
   handleQuote(evt) {
-    this.props.pageModel.getComponent(this.props.component.id).props.quote = evt.target.value
+    this.props.pageModel.getComponent(this.props.component.id).props.buttonquote = evt.target.value
     this.props.pageModel.updateComponent(this.props.component.id, this.props.component.props)
   };
 
@@ -33,10 +33,10 @@ export default class RichTextPropertyEditor extends ComponentPropertyEditor {
       <form>
         <label htmlFor="richText" className="asstTex">Rich Text</label>
         <h1>BRANDING PROPERTIES:</h1>
-        <p>Circle Color:</p> 
-        <input type="color" id="circlecolor" circlecolor={this.props.component.props.value}
+        <p>Button Color:</p> 
+        <input type="color" id="buttoncolor" buttoncolor={this.props.component.props.value}
                   className="mvm pvxs br-s w-full resize-vert"
-                  onChange={this.handleCircleColor.bind(this)}></input>
+                  onChange={this.handleButtonColor.bind(this)}></input>
         <p>Font Color:</p>
         <input type="color" id="fontcolor" fontcolor={this.props.component.props.value}
                   className="mvm pvxs br-s w-full resize-vert"

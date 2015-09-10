@@ -7,6 +7,11 @@ import FilterList from '../AppBuilder/Components/FilterList';
 import Section from '../AppBuilder/Components/Section';
 import MockedComponent from '../AppBuilder/Components/MockedComponent';
 import Brandable from '../AppBuilder/Components/Brandable';
+// RSS Components
+import EmbeddedChat from '../AppBuilder/Components/EmbeddedChat';
+import EmbeddedChatButton from '../AppBuilder/Components/EmbeddedChatButton';
+import EmbeddedKnowledge from '../AppBuilder/Components/EmbeddedKnowledge';
+import EmbeddedPrechat from '../AppBuilder/Components/EmbeddedPrechat';
 
 //Property Editors
 import FlexipagePropertyEditor from '../AppBuilder/PropertyEditor/FlexipagePropertyEditor';
@@ -23,6 +28,11 @@ import ReportChartPropertyEditor from '../AppBuilder/PropertyEditor/ReportChartP
 import VisualforcePropertyEditor from '../AppBuilder/PropertyEditor/VisualforcePropertyEditor';
 import HighlightsPropertyEditor from '../AppBuilder/PropertyEditor/HighlightsPropertyEditor';
 import BrandablePropertyEditor from '../AppBuilder/PropertyEditor/BrandablePropertyEditor';
+// RSS Properties
+import EmbeddedChatEditor from '../AppBuilder/PropertyEditor/EmbeddedChatEditor';
+import EmbeddedChatButtonEditor from '../AppBuilder/PropertyEditor/EmbeddedChatButtonEditor';
+import EmbeddedKnowledgeEditor from '../AppBuilder/PropertyEditor/EmbeddedKnowledgeEditor';
+import EmbeddedPrechatEditor from '../AppBuilder/PropertyEditor/EmbeddedPrechatEditor';
 
 /********* BEGIN STATIC ENUMS ********************************/
 /**
@@ -45,7 +55,11 @@ var CMP_TYPE = {
   REPORT_CHART: 'REPORT_CHART',
   VISUALFORCE: 'VISUALFORCE',
   HIGHLIGHTS: 'HIGHLIGHTS',
-  BRANDABLE: 'BRANDABLE'
+  BRANDABLE: 'BRANDABLE',
+  EMBEDDEDCHAT: 'EMBEDDEDCHAT',
+  EMBEDDEDCHATBUTTON: 'EMBEDDEDCHATBUTTON',
+  EMBEDDEDKNOWLEDGE: 'EMBEDDEDKNOWLEDGE',
+  EMBEDDEDPRECHAT: 'EMBEDDEDPRECHAT'
 };
 
 var DEVICES = [
@@ -244,6 +258,52 @@ var highlightsDef = {
   description: '' //TODO
 };
 
+// RSS Custom App
+
+var embedddedchatDef = {
+  icon: 'feed',
+  label: 'Chat Widget',
+  reactCmp: EmbeddedChat,
+  initProps: {
+    value: ''
+  },
+  propEditor: EmbeddedChatEditor,
+  description: 'Embedded Knowledge editor'
+};
+
+var embedddedchatbuttonDef = {
+  icon: 'highlights',
+  label: 'Chat Button',
+  reactCmp: EmbeddedChatButton,
+  initProps: {
+    buttonquote: 'Help '
+  },
+  propEditor: EmbeddedChatButtonEditor,
+  description: 'Embedded Knowledge editor'
+};
+
+var embedddedknowledgeDef = {
+  icon: 'recordDetail',
+  label: 'Knowledge Articles',
+  reactCmp: EmbeddedKnowledge,
+  initProps: {
+    value: ''
+  },
+  propEditor: EmbeddedKnowledgeEditor,
+  description: 'Embedded Knowledge editor'
+};
+
+var embedddedprechatDef = {
+  icon: 'relatedLists',
+  label: 'Pre Chat Form',
+  reactCmp: EmbeddedPrechat,
+  initProps: {
+    value: ''
+  },
+  propEditor: EmbeddedPrechatEditor,
+  description: 'Embedded Knowledge editor'
+};
+
 /**
  * Gets the component definition for the given component type
  */
@@ -277,6 +337,14 @@ function getComponentDef(type) {
       return highlightsDef;
     case CMP_TYPE.BRANDABLE:
       return brandableDef;
+    case CMP_TYPE.EMBEDDEDCHAT:
+      return embedddedchatDef;
+    case CMP_TYPE.EMBEDDEDCHATBUTTON:
+      return embedddedchatbuttonDef;
+    case CMP_TYPE.EMBEDDEDKNOWLEDGE:
+      return embedddedknowledgeDef;
+    case CMP_TYPE.EMBEDDEDPRECHAT:
+      return embedddedprechatDef;
     default:
       throw 'Unsupported component type: ' + type;
   };
@@ -321,7 +389,6 @@ var objOptions = [
     { id: "ftr4", label: "Closed/Lost" },
   ] },
 ];
-
 
 /**
  * The public API for this module
