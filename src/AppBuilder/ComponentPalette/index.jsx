@@ -12,8 +12,6 @@ export default class ComponentPalette extends React.Component {
      * Add your standard items here
      */
     var itemTypes = [
-      AppBuilderData.CMP_TYPE.BRANDABLE,
-      AppBuilderData.CMP_TYPE.EMBEDDEDCHAT,
       AppBuilderData.CMP_TYPE.EMBEDDEDCHATBUTTON,
       AppBuilderData.CMP_TYPE.EMBEDDEDKNOWLEDGE,
       AppBuilderData.CMP_TYPE.EMBEDDEDPRECHAT

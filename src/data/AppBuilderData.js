@@ -298,7 +298,8 @@ var embedddedprechatDef = {
   label: 'Pre Chat Form',
   reactCmp: EmbeddedPrechat,
   initProps: {
-    value: ''
+    imagelocation: 'http://i.imgur.com/iueFNVq.jpg',
+    quote: 'Hello and Welcome to Prechat!'
   },
   propEditor: EmbeddedPrechatEditor,
   description: 'Embedded Knowledge editor'

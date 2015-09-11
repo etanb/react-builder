@@ -8,8 +8,8 @@ export default class EmbeddedKnowledgeEditor extends ComponentPropertyEditor {
     super(props);
   };
 
-  handleCircleColor(evt) {
-    this.props.pageModel.getComponent(this.props.component.id).props.circlecolor = evt.target.value
+  handleBackgroundColor(evt) {
+    this.props.pageModel.getComponent(this.props.component.id).props.backgroundcolor = evt.target.value
     this.props.pageModel.updateComponent(this.props.component.id, this.props.component.props)
   };
 
@@ -23,20 +23,15 @@ export default class EmbeddedKnowledgeEditor extends ComponentPropertyEditor {
     this.props.pageModel.updateComponent(this.props.component.id, this.props.component.props)
   };
 
-  handleQuote(evt) {
-    this.props.pageModel.getComponent(this.props.component.id).props.quote = evt.target.value
-    this.props.pageModel.updateComponent(this.props.component.id, this.props.component.props)
-  };
-
   render() {
     return (
       <form>
         <label htmlFor="richText" className="asstTex">Rich Text</label>
-        <h1>BRANDING PROPERTIES:</h1>
+        <h1>ARTICLES BRANDING PROPERTIES:</h1>
         <p>Background Color:</p> 
-        <input type="color" id="circlecolor" circlecolor={this.props.component.props.value}
+        <input type="color" id="circlecolor" backgroundcolor={this.props.component.props.value}
                   className="mvm pvxs br-s w-full resize-vert"
-                  onChange={this.handleCircleColor.bind(this)}></input>
+                  onChange={this.handleBackgroundColor.bind(this)}></input>
         <p>Font Color:</p>
         <input type="color" id="fontcolor" fontcolor={this.props.component.props.value}
                   className="mvm pvxs br-s w-full resize-vert"

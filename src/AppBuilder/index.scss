@@ -9,6 +9,10 @@ $desktop-width: 1440px;
 .app-builder-container {
   
   /* RSS Custom CSS */
+  .customx {
+    position: fixed;
+    top: 115px;
+  }
 
   .embeddedHelpMainContainer {
       border: 0px;
@@ -38,10 +42,10 @@ $desktop-width: 1440px;
   .singleTrendingArticle {
       padding: 20px 0px;
       border-bottom: 1px solid rgb(229, 229, 229);
+      border-left: 3px solid transparent;
   }
 
   .singleTrendingArticle img {
-      width: 50px;
       height: 50px;
       float: left;
       padding: 0px 20px;
@@ -61,8 +65,32 @@ $desktop-width: 1440px;
       padding: 10px 0px;
   }
 
+  .singleTrendingArticle .votingDetail span {
+      padding-left: 5px;
+      padding-right: 5px;
+  }
+
   .singleTrendingArticle .upVote, .singleTrendingArticle .downVote {
       display: inline-block;
+  }
+
+  .embeddedHelpMainContainer .chatImage img {
+      width: 100%;
+  }
+
+  .embeddedHelpMainContainer .chatMessage {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.5;
+      margin: 20px 0px 20px 10px;
+      padding: 0 20px;
+  }
+
+  .embeddedHelpMainContainer .prechatForm {
+      margin-left: 10px;
+      font-weight: 300;
+      padding-bottom: 50px;
+      padding-left: 20px;
   }
 
   /* End */
@@ -225,7 +253,6 @@ $desktop-width: 1440px;
 /* BORDER WIDTHS & STYLE ============================================================================= */
   .ban { border: none !important; }
   .bas { border-width: 1px; border-style: solid; }
-  .bad { border-width: 1px; border-style: dotted; }
   .bls { border-left-width: 1px; border-left-style: solid; }
   .brs { border-right-width: 1px; border-right-style: solid; }
   .bts { border-top-width: 1px; border-top-style: solid; }

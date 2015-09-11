@@ -8,8 +8,13 @@ export default class RichTextPropertyEditor extends ComponentPropertyEditor {
     super(props);
   };
 
-  handleCircleColor(evt) {
-    this.props.pageModel.getComponent(this.props.component.id).props.circlecolor = evt.target.value
+  handleImageLocation(evt) {
+    this.props.pageModel.getComponent(this.props.component.id).props.imagelocation = evt.target.value
+    this.props.pageModel.updateComponent(this.props.component.id, this.props.component.props)
+  };
+
+  handleBackgroundColor(evt) {
+    this.props.pageModel.getComponent(this.props.component.id).props.backgroundcolor = evt.target.value
     this.props.pageModel.updateComponent(this.props.component.id, this.props.component.props)
   };
 
@@ -32,11 +37,15 @@ export default class RichTextPropertyEditor extends ComponentPropertyEditor {
     return (
       <form>
         <label htmlFor="richText" className="asstTex">Rich Text</label>
-        <h1>BRANDING PROPERTIES:</h1>
-        <p>Circle Color:</p> 
-        <input type="color" id="circlecolor" circlecolor={this.props.component.props.value}
+        <h1>BRANDING PROPERTIES FOR PRECHAT:</h1>
+        <p>Header Picture:</p> 
+        <input type="text" imagelocation={this.props.component.props.value}
                   className="mvm pvxs br-s w-full resize-vert"
-                  onChange={this.handleCircleColor.bind(this)}></input>
+                  onChange={this.handleImageLocation.bind(this)}></input>
+        <p>Background Color:</p> 
+        <input type="color" id="circlecolor" backgroundcolor={this.props.component.props.value}
+                  className="mvm pvxs br-s w-full resize-vert"
+                  onChange={this.handleBackgroundColor.bind(this)}></input>
         <p>Font Color:</p>
         <input type="color" id="fontcolor" fontcolor={this.props.component.props.value}
                   className="mvm pvxs br-s w-full resize-vert"
