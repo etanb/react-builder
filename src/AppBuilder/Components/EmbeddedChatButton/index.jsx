@@ -23,9 +23,11 @@ export default class EmbeddedChatButton extends Component {
 	}
 
     return (
-    	<button style={styles.brandButton} className="embeddedHelpBtn">
-    		<p style={styles.brandButtonText}>{this.props.component.props.buttonquote}<i className="fa fa-question-circle"></i></p>
-    	</button>
+    	<Component {...this.props}>
+	    	<button style={styles.brandButton} className="embeddedHelpBtn">
+	    		<p style={styles.brandButtonText}>{this.props.component.props.buttonquote}<i className="fa fa-question-circle"></i></p>
+	    	</button>
+	    </Component>
     );
   }
 }
